@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Slider</title>
+</head>
+<body class="body">
+
+<section class="main_section">
+    <input class="auto_slide_btn" onclick="changeSlideOption()" type="button" value="Stop" id="auto_slide_btn"/>
+    <section class="slider_section">
+        <div class="my_slides fade">
+            <img src="assets/images/mount1.jpg" style="height: 400px; width: 100%" alt="mount1">
+        </div>
+        <div class="my_slides fade">
+            <img src="assets/images/mount2.jpg" style="height: 400px; width: 100%" alt="mount1">
+        </div>
+        <div class="my_slides fade">
+            <img src="assets/images/mount4.jpg" style="height: 400px; width: 100%" alt="mount1">
+        </div>
+        <a class="prev" onclick="changeNextSlide(-1)">&#10094</a>
+        <a class="next" onclick="changeNextSlide(1)">&#10095</a>
+    </section>
+    <br>
+    <section class="dots">
+        <span class="dot" onclick="changeCurrentSlide(1)"></span>
+        <span class="dot" onclick="changeCurrentSlide(2)"></span>
+        <span class="dot" onclick="changeCurrentSlide(3)"></span>
+    </section>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
