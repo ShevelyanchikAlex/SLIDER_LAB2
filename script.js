@@ -1,9 +1,22 @@
+const imagesArr = ["assets/images/mount1.jpg", "assets/images/mount2.jpg", "assets/images/mount4.jpg"];
+
 let curSlideIndex = localStorage.getItem("cur_slide_index") === null ? 1 : parseInt(localStorage.getItem("cur_slide_index"));
 let isAutoShowOn = localStorage.getItem("cur_slide_index") === null ? 1 : parseInt(localStorage.getItem("is_auto_show_on"));
 let timer = 0;
+
+initSliderAndDotsSection(imagesArr);
 initBtnValue();
 showSlide(curSlideIndex);
 addEventListener("keydown", handlePress);
+
+function initSliderAndDotsSection(imagesArr) {
+    let slider_section = document.getElementById("slider_section");
+    let dots_section = document.getElementById("dots");
+    for (let i = 0; i < imagesArr.length; i++) {
+        slider_section.insertAdjacentHTML('afterend', '<div class="my_slides fade"><img class="current_image" src=' + imagesArr[i] + '></div>');
+        dots_section.insertAdjacentHTML('afterbegin', '<span class="dot" onclick="changeCurrentSlide(' + (imagesArr.length - i) + ')"></span>');
+    }
+}
 
 function changeNextSlide(delta) {
     showSlide(curSlideIndex += delta);
