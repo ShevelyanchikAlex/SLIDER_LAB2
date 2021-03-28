@@ -51,22 +51,18 @@ function changeDisplayStyle(slidesArr, dotsArr) {
 
 function autoShow() {
     clearInterval(timer);
-    if (isAutoShowOn === 1) {
-        timer = setInterval(function () {
-            curSlideIndex++;
-            showSlide(curSlideIndex);
-        }, 4000);
-    }
+    timer = setInterval(function () {
+        curSlideIndex++;
+        showSlide(curSlideIndex);
+    }, 4000);
 }
 
 function changeSlideOption() {
     const btn = document.getElementById("auto_slide_btn");
     if (btn.value === "Start") {
-        btn.value = "Stop";
         localStorage.setItem("is_auto_show_on", (1).toString());
         document.location.reload();
     } else {
-        btn.value = "Start";
         localStorage.setItem("is_auto_show_on", (0).toString());
         document.location.reload();
     }
